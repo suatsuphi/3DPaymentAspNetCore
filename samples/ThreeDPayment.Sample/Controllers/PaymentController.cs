@@ -49,7 +49,8 @@ namespace ThreeDPayment.Controllers
 
         public IActionResult ThreeDGate()
         {
-            if (HttpContext.Session.TryGetValue(PaymentSessionName, out byte[] paymentInfo))
+            HttpContext.Session.TryGetValue(PaymentSessionName, out byte[] paymentInfo);
+            if (paymentInfo==null)
                 return RedirectToAction(nameof(Index));
 
             var paymentModel = JsonSerializer.Deserialize<PaymentViewModel>(paymentInfo);
