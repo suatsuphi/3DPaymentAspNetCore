@@ -90,7 +90,7 @@ namespace ThreeDPayment
 
             var response = form["Response"];
             //mdstatus 1,2,3 veya 4 olursa 3D doğrulama geçildi anlamına geliyor
-            if (!mdStatus.Equals("1") || !mdStatus.Equals("2") || !mdStatus.Equals("3") || !mdStatus.Equals("4"))
+            if (!mdStatus.Equals("1") && !mdStatus.Equals("2") && !mdStatus.Equals("3") && !mdStatus.Equals("4"))
             {
                 paymentResult.ErrorMessage = $"{response} - {form["mdErrorMsg"]}";
                 paymentResult.ErrorCode = form["ProcReturnCode"];
